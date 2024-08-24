@@ -59,9 +59,9 @@ class Guard:
             print("Supplied variable is None!")
             if throw_exception:
                 raise ValueError("Supplied variable is None!")
-            elif force_exit:
+            if force_exit:
                 sys.exit(-1)
-        
+
     def against_empty(self, var: Union[list, dict, set, tuple], throw_exception:bool = False, force_exit: bool = True) -> None:
         """
         Check if the variable is empty and optionally exit the program.
@@ -77,7 +77,7 @@ class Guard:
             print("Supplied variable is empty!")
             if throw_exception:
                 raise ValueError("Supplied variable is empty!")
-            elif force_exit:
+            if force_exit:
                 sys.exit(-1)
 
     def against_empty_str(self, var: str, throw_exception:bool = False, force_exit: bool = True) -> None:
@@ -95,7 +95,7 @@ class Guard:
             print("Supplied string is empty!")
             if throw_exception:
                 raise ValueError("Supplied string is empty!")
-            elif force_exit:
+            if force_exit:
                 sys.exit(-1)
 
     def against_stuck_thread(self, thread: threading.Thread, timeout: int, kill_instead = False, force_exit: bool = True) -> None:
