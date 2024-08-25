@@ -12,6 +12,7 @@ from typing import List, Tuple, Union
 import threading
 import contextlib
 import inspect
+import time
 
 def system_cmd(command: str) -> Tuple[int, str, str]:
     """
@@ -98,26 +99,6 @@ class Guard:
             if force_exit:
                 sys.exit(-1)
 
-    def against_stuck_thread(self, thread: threading.Thread, timeout: int, kill_instead = False, force_exit: bool = True) -> None:
-        """
-        Check if the thread is stuck and optionally exit the program.
-
-        Parameters:
-        - thread (threading.Thread): The thread to check.
-        - timeout (int): The timeout in seconds to wait for the thread to finish.
-        - kill_instead (bool): Whether to kill the thread instead of exiting the program. 
-          Default is False.
-        - force_exit (bool): Whether to exit the program if the thread is stuck. 
-          Default is True.
-        """
-        thread.join(timeout)
-        if thread.is_alive():
-            print("Thread is stuck!")
-            if kill_instead:
-                thread.kill()
-            elif force_exit:
-                sys.exit(-1)
-
 class FileUtils:
     """
     A utility class for performing various file operations such as replacing text,
@@ -202,8 +183,6 @@ class FileUtils:
 
         with open(file_path, 'w', encoding=encoding) as file:
             file.writelines(lines)
-            if lines and lines[-1].strip() != "":
-                file.write("\n")
 
     def merge_files(self, file_paths: List[str], output_path: str, encoding: str = 'utf-8') -> None:
         """Merge the specified files into a single file."""
