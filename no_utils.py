@@ -9,10 +9,8 @@ import sys
 import os
 from subprocess import Popen, PIPE
 from typing import List, Tuple, Union
-import threading
 import contextlib
 import inspect
-import time
 
 def system_cmd(command: str) -> Tuple[int, str, str]:
     """

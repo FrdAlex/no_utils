@@ -2,6 +2,8 @@
 
 import unittest
 import os
+import sys
+sys.path.append(os.pardir)
 from no_utils import FileUtils
 
 class TestFileUtils(unittest.TestCase):

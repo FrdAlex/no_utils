@@ -1,8 +1,9 @@
 # test_guard.py
 
 import unittest
-import threading
 import sys
+import os
+sys.path.append(os.pardir)
 from no_utils import Guard
 
 class TestGuard(unittest.TestCase):
