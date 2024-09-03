@@ -1,4 +1,4 @@
-# Overvoew
+# Overview
 
 A Python module whose goal is to take some common cases of python code that become repetive and used everywhere and hide them behind some easy to use functions and classes
 
@@ -6,7 +6,7 @@ A Python module whose goal is to take some common cases of python code that beco
 
 ```python
 
-from no-utils import *
+from no-utils import system_cmd,FileUtils,Guard
 
 #run a system command and get the return code, output and error messages
 ret, out, err = system_cmd("git clone https://github.com/FrdAlex/no_utils.git")
